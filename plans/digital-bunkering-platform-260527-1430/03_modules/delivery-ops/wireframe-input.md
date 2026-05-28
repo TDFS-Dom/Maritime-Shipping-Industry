@@ -139,7 +139,7 @@
 - **Content:**
   - **App Bar:** "Complete Delivery" + Delivery reference
   - **Summary Card (main content):**
-    - Total Quantity Delivered: LARGE number + "MT" (e.g. "500.24 MT")
+    - Total Quantity Delivered: LARGE number + "MT" (e.g. "500.240 MT")
     - Duration: "3h 45m"
     - Start Time: "14:30, 15 Jun 2026"
     - End Time: "18:15, 15 Jun 2026"
@@ -202,7 +202,7 @@
 | Data | Format | Truncation | Notes |
 |---|---|---|---|
 | Vessel name | Title case, bold | Max 20 chars mobile | Giữ ngắn cho mobile |
-| Quantity | `XXX.XX MT` | — | 2 decimal places, thousand separator nếu ≥1000 |
+| Quantity | `XXX.XXX MT` | — | 2 decimal places, thousand separator nếu ≥1000 |
 | Flow rate | `XX.X m³/h` | — | 1 decimal, font ≥ 32px trên MFM |
 | Temperature | `XX.X °C` | — | 1 decimal |
 | Duration | `Xh Ym` | — | Không hiển thị seconds |

@@ -220,7 +220,7 @@
 | Payment Date | `dd MMM yyyy` | — | In payment history |
 | Payment Method | Title case | — | "Bank Transfer", "Wire", etc. |
 | Unit Price | `$XXX.XX/MT` | — | Per metric tonne |
-| Quantity | `XXX.XX MT` | — | 2 decimals + unit |
+| Quantity | `XXX.XXX MT` | — | 2 decimals + unit |
 | Aging brackets | "0-30", "31-60", "61-90", "90+" | — | Labels trên chart |
 | Currency | ISO code prefix (USD, SGD) hoặc symbol ($, S$) | — | Consistent throughout |
 | Remaining Balance | Bold, larger font (16px) | — | Highlighted in Record Payment modal |

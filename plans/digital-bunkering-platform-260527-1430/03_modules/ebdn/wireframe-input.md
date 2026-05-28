@@ -55,7 +55,7 @@
 - **Entry point:** Click row từ SCR-EBDN-01
 - **Layout type:** Detail (document-style + metadata panels)
 - **Content:**
-  - **Page Header:** Breadcrumb (eBDN > EBDN-2024-00456) + Status badge
+  - **Page Header:** Breadcrumb (eBDN > ABC-2026-000456) + Status badge
   - **Section 1 — eBDN Document Content (Card, document-style):**
     - Header: Supplier info, Vessel info, Barge info
     - Delivery details: Fuel type, Grade, Quantity delivered, Start/End time
@@ -109,7 +109,7 @@
   - **eBDN Summary (Card, scrollable):**
     - Vessel: Name + IMO
     - Fuel: Type + Grade
-    - Quantity Delivered: XXX.XX MT
+    - Quantity Delivered: XXX.XXX MT
     - Start Time → End Time
     - Duration
     - MFM Totalizer: Start → End
@@ -237,10 +237,10 @@
 
 | Data | Format | Truncation | Notes |
 |---|---|---|---|
-| eBDN Reference | `EBDN-YYYY-NNNNN` | Không truncate | Luôn hiển thị đầy đủ |
+| eBDN Reference | `{PREFIX}-YYYY-NNNNNN` | Không truncate | Luôn hiển thị đầy đủ |
 | Vessel Name | Title case | Max 25 chars (table), full (detail) | Tooltip on truncate |
 | Barge Name | Title case | Max 20 chars (table) | — |
-| Quantity | `XXX.XX MT` | — | 2 decimal places, thousand separator |
+| Quantity | `XXX.XXX MT` | — | 2 decimal places, thousand separator |
 | Fuel Type | Badge pill (code) trên table, full name trên detail | — | Per DESIGN.md §8 |
 | Status | Badge pill (dot + text) | — | Colors per DESIGN.md §3.2 |
 | Signed Date | `HH:mm, dd MMM yyyy` | — | Hoặc "—" nếu chưa ký |

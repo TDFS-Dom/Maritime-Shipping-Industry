@@ -118,6 +118,8 @@
 | FR-FUEL-002 | Validate fuel code consistency: nomination fuel type = delivery fuel type = eBDN fuel type | fuel-grades | SS 709 |
 | FR-FUEL-003 | Support biofuel codes (BIO-VLSFO380, BIO-MGO, HVO variants) | fuel-grades | SS 709 |
 | FR-FUEL-004 | Support methanol codes (MMA, MMB, MMC) | fuel-grades | SS 709 |
+| FR-FUEL-005 | Support LNG fuel code with cryogenic handling indicators | fuel-grades | SS 709, IGF Code |
+| FR-FUEL-006 | Support ammonia codes (AMM-GREEN, AMM-BLUE) with toxicity indicators | fuel-grades | SS 709, DEC-04 |
 | FR-B2G-001 | Submit signed eBDN to MPA B2G platform within required timeframe | b2g-compliance | SS 648, MPA |
 | FR-B2G-002 | Track submission status (pending, submitted, acknowledged, rejected) | b2g-compliance | MPA |
 | FR-B2G-003 | Alert when submission approaching deadline | b2g-compliance | MPA |

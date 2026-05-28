@@ -331,6 +331,7 @@ CREATE TABLE nominations (
     sanctions_status        VARCHAR(20),  -- PENDING, CLEAR, POTENTIAL_MATCH, CONFIRMED_MATCH
     created_at      TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at      TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    version         INTEGER NOT NULL DEFAULT 0,  -- Optimistic locking (PLAT-006)
     deleted_at      TIMESTAMPTZ,  -- Soft delete
 
     CONSTRAINT chk_delivery_window CHECK (delivery_window_end > delivery_window_start),

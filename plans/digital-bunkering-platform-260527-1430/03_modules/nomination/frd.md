@@ -24,7 +24,7 @@ Module đóng vai trò là điểm khởi đầu của toàn bộ chuỗi nghi�
 | F-NOM-01 | Create Nomination | Buyer tạo đơn đặt nhiên liệu mới | Must |
 | F-NOM-02 | Confirm Nomination | Supplier xác nhận và assign barge | Must |
 | F-NOM-03 | Reject Nomination | Supplier từ chối kèm lý do | Must |
-| F-NOM-04 | Modify Nomination | Buyer chỉnh sửa nomination (khi ở trạng thái DRAFT/PENDING) | Should |
+| F-NOM-04 | Modify Nomination | Buyer chỉnh sửa nomination (khi ở trạng thái DRAFT/PENDING_REVIEW) | Should |
 | F-NOM-05 | Cancel Nomination | Buyer hủy nomination | Must |
 | F-NOM-06 | Nomination History | Xem lịch sử nomination với filter/search | Should |
 
@@ -40,7 +40,7 @@ flowchart TD
     B -->|Invalid| C[Trả lỗi: Fuel code không hợp lệ]
     B -->|Valid| D[Sanctions screening tự động]
     D -->|Flagged| E[Block nomination - Escalate to Compliance]
-    D -->|Clear| F[Nomination status = PENDING]
+    D -->|Clear| F[Nomination status = PENDING_REVIEW_REVIEW]
     F --> G[Supplier nhận thông báo]
     G --> H{Supplier review}
     H -->|Accept| I[Supplier assign barge]
@@ -56,7 +56,7 @@ flowchart TD
 ```mermaid
 flowchart TD
     A[Buyer yêu cầu hủy] --> B{Nomination status?}
-    B -->|DRAFT/PENDING| C[Status = CANCELLED]
+    B -->|DRAFT/PENDING_REVIEW| C[Status = CANCELLED]
     B -->|CONFIRMED| D[Thông báo Supplier]
     D --> E[Hủy scheduling task liên quan]
     E --> F[Status = CANCELLED]
@@ -80,7 +80,7 @@ flowchart TD
 | port | String(100) | NOT NULL | Cảng giao hàng |
 | delivery_window_start | DateTime | NOT NULL | Bắt đầu khung giao hàng |
 | delivery_window_end | DateTime | NOT NULL | Kết thúc khung giao hàng |
-| status | Enum | NOT NULL | DRAFT, PENDING, CONFIRMED, REJECTED, CANCELLED |
+| status | Enum | NOT NULL | DRAFT, PENDING_REVIEW, CONFIRMED, REJECTED, CANCELLED |
 | assigned_barge_id | UUID | FK, nullable | Barge được phân bổ (khi confirmed) |
 | rejection_reason | Text | nullable | Lý do từ chối |
 | notes | Text | nullable | Ghi chú bổ sung |
@@ -92,11 +92,11 @@ flowchart TD
 ```mermaid
 stateDiagram-v2
     [*] --> DRAFT
-    DRAFT --> PENDING : Submit
+    DRAFT --> PENDING_REVIEW : Submit
     DRAFT --> CANCELLED : Cancel
-    PENDING --> CONFIRMED : Supplier Accept
-    PENDING --> REJECTED : Supplier Reject
-    PENDING --> CANCELLED : Buyer Cancel
+    PENDING_REVIEW --> CONFIRMED : Supplier Accept
+    PENDING_REVIEW --> REJECTED : Supplier Reject
+    PENDING_REVIEW --> CANCELLED : Buyer Cancel
     CONFIRMED --> CANCELLED : Buyer Cancel (notify supplier + cancel schedule)
 ```
 
@@ -131,17 +131,17 @@ stateDiagram-v2
 - [ ] Fuel type code được validate qua fuel-grades module
 - [ ] Hệ thống từ chối nomination nếu delivery window < 24h từ hiện tại
 - [ ] Nomination tạo thành công ở trạng thái DRAFT hoặc PENDING
-- [ ] Sanctions screening tự động trigger khi submit (DRAFT → PENDING)
+- [ ] Sanctions screening tự động trigger khi submit (DRAFT → PENDING_REVIEW)
 
 ### F-NOM-02: Confirm Nomination
-- [ ] Supplier chỉ confirm được nomination có status = PENDING
+- [ ] Supplier chỉ confirm được nomination có status = PENDING_REVIEW
 - [ ] Supplier PHẢI assign barge khi confirm
 - [ ] Status chuyển sang CONFIRMED
 - [ ] Scheduling task tự động được tạo
 - [ ] Buyer nhận thông báo nomination đã được confirm
 
 ### F-NOM-03: Reject Nomination
-- [ ] Supplier chỉ reject được nomination có status = PENDING
+- [ ] Supplier chỉ reject được nomination có status = PENDING_REVIEW
 - [ ] Supplier PHẢI nhập lý do từ chối
 - [ ] Status chuyển sang REJECTED
 - [ ] Buyer nhận thông báo kèm lý do
@@ -149,10 +149,10 @@ stateDiagram-v2
 ### F-NOM-04: Modify Nomination
 - [ ] Buyer chỉ sửa được nomination có status = DRAFT hoặc PENDING
 - [ ] Fuel code validation chạy lại sau khi sửa
-- [ ] Nếu đang PENDING → re-trigger sanctions screening
+- [ ] Nếu đang PENDING_REVIEW → re-trigger sanctions screening
 
 ### F-NOM-05: Cancel Nomination
-- [ ] Buyer có thể cancel nomination ở trạng thái DRAFT, PENDING, CONFIRMED
+- [ ] Buyer có thể cancel nomination ở trạng thái DRAFT, PENDING_REVIEW, CONFIRMED
 - [ ] Nếu CONFIRMED → thông báo Supplier + hủy scheduling task liên quan
 - [ ] Status chuyển sang CANCELLED
 
