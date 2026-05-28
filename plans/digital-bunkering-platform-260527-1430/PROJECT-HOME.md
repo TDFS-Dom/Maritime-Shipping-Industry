@@ -16,7 +16,7 @@
 | Backbone | ✅ Hoàn thành | Khung yêu cầu đã chốt, 35 FR, 14 NFR, 25 features |
 | FRD (12 modules) | ✅ Hoàn thành | Tất cả 12 module đã có FRD |
 | User Stories (11 modules) | ✅ Hoàn thành | 53 user stories across 11 modules |
-| SRS | ⏳ Chưa bắt đầu | Technical specs chi tiết |
+| SRS (10 modules) | ✅ Hoàn thành | Full technical specs: state machines, data models, APIs, business rules |
 | Wireframes | ⏳ Chưa bắt đầu | UI constraint packs |
 | Package | ⏳ Chưa bắt đầu | HTML compilation |
 
@@ -24,9 +24,9 @@
 
 ## 2. Bước Tiếp Theo Được Khuyến Nghị
 
-**→ SRS cho module `ebdn`** (compliance-critical, nhiều technical detail nhất)
+**→ Package compilation** — Compile tất cả FRD + SRS thành HTML cho handoff.
 
-Hoặc nếu muốn wireframes trước: **→ DESIGN.md** (cần chốt design system trước khi tạo wireframe constraints)
+Hoặc nếu cần wireframes: **→ DESIGN.md + Wireframe Input packs** cho các modules có UI (nomination, scheduling, delivery-ops, ebdn, b2g-compliance, sanctions-kyc, finance)
 
 ---
 
@@ -83,15 +83,15 @@ Hoặc nếu muốn wireframes trước: **→ DESIGN.md** (cần chốt design 
 
 | Module | FRD | Stories | SRS | Priority |
 |---|---|---|---|---|
-| nomination | ✅ | ✅ (6) | ⏳ | Must |
-| scheduling | ✅ | ✅ (5) | ⏳ | Must |
-| delivery-ops | ✅ | ✅ (7) | ⏳ | Must |
-| mfm-integration | ✅ | ✅ (4) | ⏳ | Must |
-| ebdn | ✅ | ✅ (7) | ⏳ | Must |
-| fuel-grades | ✅ | ✅ (4) | ⏳ | Must |
-| b2g-compliance | ✅ | ✅ (5) | ⏳ | Must |
-| sampling-quality | ✅ | ✅ (3) | ⏳ | Should |
-| sanctions-kyc | ✅ | ✅ (5) | ⏳ | Should |
-| finance | ✅ | ✅ (4) | ⏳ | Should |
+| nomination | ✅ | ✅ (6) | ✅ | Must |
+| scheduling | ✅ | ✅ (5) | ✅ | Must |
+| delivery-ops | ✅ | ✅ (7) | ✅ | Must |
+| mfm-integration | ✅ | ✅ (4) | ✅ | Must |
+| ebdn | ✅ | ✅ (7) | ✅ | Must |
+| fuel-grades | ✅ | ✅ (4) | ✅ | Must |
+| b2g-compliance | ✅ | ✅ (5) | ✅ | Must |
+| sampling-quality | ✅ | ✅ (3) | ✅ | Should |
+| sanctions-kyc | ✅ | ✅ (5) | ✅ | Should |
+| finance | ✅ | ✅ (4) | ✅ | Should |
 | analytics | ✅ | ✅ (3) | ❌ | Could |
 | messaging | ✅ | ❌ | ❌ | Could |
