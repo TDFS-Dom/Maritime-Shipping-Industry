@@ -34,28 +34,29 @@ End-to-end digital bunkering operations platform:
 
 ### Phase 1: Foundation
 - [x] Step 1-4: Intake + Gap Analysis + Scope Lock
-- [ ] Step 5: Requirements Backbone
+- [x] Step 5: Requirements Backbone
 
 ### Phase 2: Core Modules (Must)
-- [ ] Module: nomination — FRD → Stories → SRS
-- [ ] Module: scheduling — FRD → Stories → SRS
-- [ ] Module: delivery-ops — FRD → Stories → SRS
-- [ ] Module: mfm-integration — FRD → Stories → SRS
-- [ ] Module: ebdn — FRD → Stories → SRS
-- [ ] Module: fuel-grades — FRD → Stories → SRS
-- [ ] Module: b2g-compliance — FRD → Stories → SRS
+- [x] Module: nomination — FRD → Stories → SRS
+- [x] Module: scheduling — FRD → Stories → SRS
+- [x] Module: delivery-ops — FRD → Stories → SRS
+- [x] Module: mfm-integration — FRD → Stories → SRS
+- [x] Module: ebdn — FRD → Stories → SRS
+- [x] Module: fuel-grades — FRD → Stories → SRS
+- [x] Module: b2g-compliance — FRD → Stories → SRS
 
 ### Phase 3: Supporting Modules (Should)
-- [ ] Module: sampling-quality — FRD → Stories → SRS
-- [ ] Module: sanctions-kyc — FRD → Stories → SRS
-- [ ] Module: finance — FRD → Stories → SRS
+- [x] Module: sampling-quality — FRD → Stories → SRS
+- [x] Module: sanctions-kyc — FRD → Stories → SRS
+- [x] Module: finance — FRD → Stories → SRS
 
 ### Phase 4: Nice-to-have Modules (Could)
-- [ ] Module: analytics — FRD → Stories
-- [ ] Module: messaging — FRD only
+- [x] Module: analytics — FRD → Stories
+- [x] Module: messaging — FRD only
 
 ### Phase 5: Design & Package
-- [ ] Wireframe handoff (selected modules)
+- [x] DESIGN.md (design system)
+- [x] Wireframe input packs (7 modules)
 - [ ] Package compilation (HTML)
 
 ## Estimation
